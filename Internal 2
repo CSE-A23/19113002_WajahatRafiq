@@ -437,3 +437,58 @@ result = Division (numerator, denominator);
 cout << "The quotient of 12.5/0 is"<< result << endl;
 
 } 
+
+
+11)
+
+#include<iostream>
+using namespace std;
+class salary
+{
+    public:
+    long int bp;
+    void get()
+    {
+        cout<<"Enter basic salary\n";       
+        cin>>bp;
+    }
+};
+class isalary:public salary
+{
+    public:
+    long double is;
+    void get()
+    {
+        salary::get();
+        int i;
+        float pec;
+        cout<<"Enter incremented percentage\n";
+        cin>>i;
+        pec=(bp*i)/100;
+        is=bp+pec;
+    }
+};
+class rsalary:public isalary
+{
+    public:
+    long double r;
+    long int p;
+    void get()
+    {
+        isalary::get();
+        cout<<"Enter performance salary\n"; //the performance salary must be higher than the basic salary//
+        cin>>p;
+        r=is+p;
+    }
+    void print()
+    {
+        cout<<"Revised salary="<<r<<"\n";
+    }
+};
+int main()
+{
+    rsalary obj;    //only for single user//
+    obj.get();
+    obj.print();
+}
+
